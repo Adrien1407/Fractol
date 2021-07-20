@@ -6,11 +6,12 @@
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 16:37:50 by adlancel          #+#    #+#             */
-/*   Updated: 2021/07/19 18:58:37 by adlancel         ###   ########.fr       */
+/*   Updated: 2021/07/20 14:46:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "fractol.h"
 
-
+/*
 #include <mlx.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -126,10 +127,10 @@ int     mandelbrot_magic(float x, float y)
                 color  = 0;
 
         else
-                color =  n * (16777215 / n_max);
+                color =  n * (16777215 / n_max) * 1500;
         return (color);
 }
-
+*/
 int     main(int ac, char **av)
 {
         int color;
