@@ -6,7 +6,7 @@
 #    By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/13 17:21:29 by adlancel          #+#    #+#              #
-#    Updated: 2021/07/20 14:49:13 by user42           ###   ########.fr        #
+#    Updated: 2021/07/20 17:03:46 by adlancel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC_F = main.c \
 				power_2.c \
 				set_hooks.c \
 				get_key_press.c \
+				get_mouse_scroll.c \
 
 
 SRC = $(addprefix $(SRC_DIR)/,$(SRC_F))

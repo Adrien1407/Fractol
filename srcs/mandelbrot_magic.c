@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 14:33:54 by user42            #+#    #+#             */
-/*   Updated: 2021/07/20 14:40:22 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/20 17:01:12 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ int     mandelbrot_magic(float x, float y)
                 color  = 0;
 
         else
-                color =  n * (16777215 / n_max) * 1500;
+                color =  n * (16777215 / n_max) ;
         return (color);
 }
