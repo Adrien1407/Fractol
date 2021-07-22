@@ -6,12 +6,12 @@
 #    By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/13 17:21:29 by adlancel          #+#    #+#              #
-#    Updated: 2021/07/21 15:32:19 by adlancel         ###   ########.fr        #
+#    Updated: 2021/07/22 19:48:54 by adlancel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
-CCF = clang -Wall -Wextra -Werror
+CCF = clang -Wall -Wextra -Werror -O3
 FLAGS = -Lmlx_linux -lmlx_Linux -lXext -lX11 -lm -lbsd
 
 OBJ_DIR = objs

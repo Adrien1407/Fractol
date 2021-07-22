@@ -6,7 +6,7 @@
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 14:52:48 by adlancel          #+#    #+#             */
-/*   Updated: 2021/07/22 14:39:02 by adlancel         ###   ########.fr       */
+/*   Updated: 2021/07/22 19:59:52 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	jul(t_data *data, float x, float y)
 	float	cr;
 	float	ci;
 
-	cr = 0.285;
-	ci = 0.01;
+	cr = -0.51;
+	ci = 0.52;
 	n_max = 1000;
 	n = 0;
 	while (((power_2(x) + power_2(y)) < 4) && (n < n_max))

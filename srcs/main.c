@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/20 17:05:32 by user42            #+#    #+#             */
-/*   Updated: 2021/07/22 15:34:43 by adlancel         ###   ########.fr       */
+/*   Created: 2021/07/20 17:05:data->canvas2 by user42            #+#    #+#             */
+/*   Updated: 2021/07/22 18:57:51 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@ void	run_fractal(t_data *data)
 	int	i;
 	int	j;
 	int	color;
-
+	if (data->fractal == 1)
+	{
+	printf ("data->corner[X] = %f\n", data->corner[X]);
+		data->corner[X] -= 0.55;
+	printf ("data->corner[X] = %f\n", data->corner[X]);
+		data->center[X] -= 0.55;
+	}
 	j = 0;
 	while (j < HEIGHT)
 	{
@@ -25,11 +31,13 @@ void	run_fractal(t_data *data)
 		while (i < WIDTH)
 		{
 			if (data->fractal == 1)
-				color = mand(data, -1.5 + (float)i * 3
-						/ (WIDTH - 1), -((1.5) - (float)j * 3 / (HEIGHT - 1)));
+			{
+				color = mand(data, data->corner[X] + (float)i * data->canvas
+						/ (WIDTH), -(data->corner[Y] - (float)j * data->canvas / (HEIGHT)));
+			}
 			else if (data->fractal == 2)
-				color = jul(data, -1.5 + (float)i * 3
-						/ (WIDTH - 1), -((1.5) - (float)j * 3 / (HEIGHT - 1)));
+				color = jul(data, data->corner[X] + (float)i * data->canvas
+						/ (WIDTH), -((data->corner[Y]) - (float)j * data->canvas / (HEIGHT)));
 			my_mlx_pixel_put(data, i, j, color);
 			i++;
 		}

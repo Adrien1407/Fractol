@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 14:29:25 by user42            #+#    #+#             */
-/*   Updated: 2021/07/22 15:41:09 by adlancel         ###   ########.fr       */
+/*   Updated: 2021/07/22 18:32:12 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ typedef struct s_data {
 	void	*mlx;
 	void	*win;
 	char	*addr;
-	float	zoom;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
 	int		rgb[16];
 	int		fractal;
+	float	corner[2];
+	float	canvas;
+	float	center[2];
 }				t_data;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
