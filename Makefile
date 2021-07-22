@@ -6,7 +6,7 @@
 #    By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/13 17:21:29 by adlancel          #+#    #+#              #
-#    Updated: 2021/07/20 17:03:46 by adlancel         ###   ########.fr        #
+#    Updated: 2021/07/21 15:32:19 by adlancel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ SRC_F = main.c \
 				ft_strncmp.c \
 				init_fractal.c \
 				init_mlx.c \
+				init_rgb.c \
 				mandelbrot_magic.c \
+				julia_magic.c \
 				my_mlx_pixel_put.c \
 				power_2.c \
 				set_hooks.c \

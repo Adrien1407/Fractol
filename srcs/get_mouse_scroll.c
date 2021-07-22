@@ -6,37 +6,45 @@
 /*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 16:44:31 by adlancel          #+#    #+#             */
-/*   Updated: 2021/07/20 18:23:24 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/22 15:33:06 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+void	set_zoom(t_data *data, int key)
+{
+	if (key == 5)
+		data->zoom += 0.05;
+	else if (key == 4)
+		data->zoom -= 0.05;
+}
+
 int	get_mouse_scroll(int key, int x, int y, t_data *data)
 {
-	(void)x;
-	(void)y;
-	int j;
-	int i;
-	int color;
+	float	j;
+	float	i;
+	int		c;
 
-	if (key == 5)
-		data->zoom += 0.1;
-	else if (key == 4)
-		data->zoom -= 0.1;
+	(void)x, (void)y;
+	set_zoom(data, key);
 	j = 0;
-	while (j < HEIGHT)
+	while (j++ < HEIGHT)
 	{
 		i = 0;
-		while (i < WIDTH)
+		while (i++ < WIDTH)
 		{
-			color = mandelbrot_magic((-1.5 * data->zoom) + (float)i * (3 * data->zoom) / (WIDTH - 1), (1.5 * data->zoom)-(float)j * (3 * data->zoom) / (HEIGHT - 1));
-			my_mlx_pixel_put(data, i, j, color);
-			i++;
+			if (data->fractal == 1)
+				c = mand(data, ((-1.5 + i * (3 * data->zoom) / (WIDTH - 1))
+							* data->zoom), ((1.5 - j * (3 * data->zoom)
+								/ (HEIGHT - 1)) * data->zoom));
+			else if (data->fractal == 2)
+				c = jul(data, (-1.5 * data->zoom) + i * (3 * data->zoom)
+						/ (WIDTH - 1), (1.5 * data->zoom) - j
+						* (3 * data->zoom) / (HEIGHT - 1));
+			my_mlx_pixel_put(data, (int)i, (int)j, c);
 		}
-		j++;
 	}
-        mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
-
+	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 	return (1);
 }

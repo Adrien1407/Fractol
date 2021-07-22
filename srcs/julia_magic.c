@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot_magic.c                                 :+:      :+:    :+:   */
+/*   julia_magic.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: adlancel <adlancel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/20 14:33:54 by user42            #+#    #+#             */
-/*   Updated: 2021/07/22 14:39:12 by adlancel         ###   ########.fr       */
+/*   Created: 2021/07/21 14:52:48 by adlancel          #+#    #+#             */
+/*   Updated: 2021/07/22 14:39:02 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	mand(t_data *data, float x, float y)
+int	jul(t_data *data, float x, float y)
 {
-	int		color;
 	int		n;
 	int		n_max;
-	float	ret[2];
 	float	tmp;
+	float	cr;
+	float	ci;
 
-	ret[X] = 0;
-	ret[Y] = 0;
+	cr = 0.285;
+	ci = 0.01;
 	n_max = 1000;
 	n = 0;
-	while (((power_2(ret[X]) + power_2(ret[Y])) < 4) && (n < n_max))
+	while (((power_2(x) + power_2(y)) < 4) && (n < n_max))
 	{
-		tmp = ret[X];
-		ret[X] = power_2(ret[X]) - power_2(ret[Y]) + x;
-		ret[Y] = (2 * ret[Y] * tmp) + y;
+		tmp = x;
+		x = power_2(x) - power_2(y) + cr;
+		y = (2 * y * tmp) + ci;
 		++n;
 	}
 	if (n == n_max)
-		color = 0;
+		return (0);
 	else
-		color = data->rgb[n % 16];
-	return (color);
+		return (data->rgb[n % 16]);
 }

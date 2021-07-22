@@ -6,17 +6,15 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 14:38:18 by user42            #+#    #+#             */
-/*   Updated: 2021/07/20 14:38:37 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/22 14:13:22 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int     get_key_press(int key, t_data *data)
+int	get_key_press(int key, t_data *data)
 {
-        if  (key == ECHAP)
-                return (exit_and_free(data));
-
-        return (1);
+	if (key == ECHAP)
+		return (exit_and_free(data));
+	return (1);
 }
-
