@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 14:35:40 by user42            #+#    #+#             */
-/*   Updated: 2021/07/22 18:43:37 by adlancel         ###   ########.fr       */
+/*   Updated: 2021/07/23 19:34:57 by adrienlan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	init_mlx(t_data *data)
 	data->corner[Y] = 1.5;
 	data->center[X] = 0;
 	data->center[Y] = 0;
-
 	data->mlx = mlx_init();
 	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, TITLE);
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);

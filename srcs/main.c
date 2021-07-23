@@ -3,46 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: adrienlancelle <marvin@42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/20 17:05:data->canvas2 by user42            #+#    #+#             */
-/*   Updated: 2021/07/22 18:57:51 by adlancel         ###   ########.fr       */
+/*   Created: 2021/07/23 19:30:00 by adrienlan         #+#    #+#             */
+/*   Updated: 2021/07/23 19:37:05 by adrienlan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	run_fractal(t_data *data)
+static void	run_fractal_loop(t_data *data)
 {
 	int	i;
 	int	j;
 	int	color;
-	if (data->fractal == 1)
-	{
-	printf ("data->corner[X] = %f\n", data->corner[X]);
-		data->corner[X] -= 0.55;
-	printf ("data->corner[X] = %f\n", data->corner[X]);
-		data->center[X] -= 0.55;
-	}
+
 	j = 0;
-	while (j < HEIGHT)
+	while (j++ < HEIGHT)
 	{
 		i = 0;
-		while (i < WIDTH)
+		while (i++ < WIDTH)
 		{
 			if (data->fractal == 1)
 			{
-				color = mand(data, data->corner[X] + (float)i * data->canvas
-						/ (WIDTH), -(data->corner[Y] - (float)j * data->canvas / (HEIGHT)));
+				color = mand(data, data->corner[X] + i * data->canvas / (WIDTH),
+						-(data->corner[Y] - j * data->canvas / (HEIGHT)));
 			}
 			else if (data->fractal == 2)
-				color = jul(data, data->corner[X] + (float)i * data->canvas
-						/ (WIDTH), -((data->corner[Y]) - (float)j * data->canvas / (HEIGHT)));
+				color = jul(data, data->corner[X] + i * data->canvas / (WIDTH),
+						-((data->corner[Y]) - j * data->canvas / (HEIGHT)));
 			my_mlx_pixel_put(data, i, j, color);
-			i++;
 		}
-		j++;
 	}
+}
+
+static void	run_fractal(t_data *data)
+{
+	float	i;
+	float	j;
+	int		color;
+
+	j = 0;
+	if (data->fractal == 1)
+	{
+		data->corner[X] -= 0.55;
+		data->center[X] -= 0.55;
+	}
+	run_fractal_loop(data);
 }
 
 int	main(int ac, char **av)
@@ -50,7 +57,7 @@ int	main(int ac, char **av)
 	t_data	*data;
 
 	data = NULL;
-	if (ac == 1)
+	if (ac != 2)
 		return (0);
 	data = malloc(sizeof(t_data));
 	if (!data)
