@@ -6,7 +6,7 @@
 /*   By: adrienlancelle <marvin@42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 19:24:59 by adrienlan         #+#    #+#             */
-/*   Updated: 2021/07/23 19:26:58 by adrienlan        ###   ########.fr       */
+/*   Updated: 2021/08/02 13:37:09 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static	void	zoom_in(t_data *data)
 {
-	data->canvas *= 0.9;
+	data->canvas *= 0.8;
 	data->corner[X] = data->center[X] - (data->canvas * 0.5);
 	data->corner[Y] = data->center[Y] + (data->canvas * 0.5);
 }
 
 static void	zoom_out(t_data *data)
 {
-	data->canvas *= 1.1;
+	data->canvas *= 1.2;
 	data->corner[X] = data->center[X] - (data->canvas * 0.5);
 	data->corner[Y] = data->center[Y] + (data->canvas * 0.5);
 }

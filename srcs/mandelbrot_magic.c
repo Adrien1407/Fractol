@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 14:33:54 by user42            #+#    #+#             */
-/*   Updated: 2021/07/22 19:55:43 by adlancel         ###   ########.fr       */
+/*   Updated: 2021/07/26 17:47:39 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int	mand(t_data *data, float x, float y)
 	if (n == n_max)
 		color = 0;
 	else
-		color = data->rgb[n % 16];
+		color = data->rgb[n % 32];
 	return (color);
 }

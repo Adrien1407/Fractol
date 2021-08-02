@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 14:35:40 by user42            #+#    #+#             */
-/*   Updated: 2021/07/23 19:34:57 by adrienlan        ###   ########.fr       */
+/*   Updated: 2021/07/26 18:16:15 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_mlx(t_data *data)
 {
-	init_rgb(data->rgb);
+	init_rgb(data);
 	data->canvas = 3.0;
 	data->corner[X] = -1.5;
 	data->corner[Y] = 1.5;

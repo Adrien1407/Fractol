@@ -6,7 +6,7 @@
 /*   By: adrienlancelle <marvin@42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 19:30:00 by adrienlan         #+#    #+#             */
-/*   Updated: 2021/07/23 19:37:05 by adrienlan        ###   ########.fr       */
+/*   Updated: 2021/07/29 16:16:39 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	run_fractal_loop(t_data *data)
 {
-	int	i;
-	int	j;
-	int	color;
+	float	i;
+	float	j;
+	int		color;
 
 	j = 0;
 	while (j++ < HEIGHT)
@@ -39,11 +39,6 @@ static void	run_fractal_loop(t_data *data)
 
 static void	run_fractal(t_data *data)
 {
-	float	i;
-	float	j;
-	int		color;
-
-	j = 0;
 	if (data->fractal == 1)
 	{
 		data->corner[X] -= 0.55;
@@ -62,9 +57,14 @@ int	main(int ac, char **av)
 	data = malloc(sizeof(t_data));
 	if (!data)
 		return (0);
-	init_mlx(data);
 	if (init_fractal(data, av[1]))
+		init_mlx(data);
+	else
+	{
+		printf("The argument must be \"julia\" or \"mandelbrot\"\n");
+		free(data);
 		return (0);
+	}
 	run_fractal(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 	set_hooks(data);

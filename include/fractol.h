@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 14:29:25 by user42            #+#    #+#             */
-/*   Updated: 2021/07/22 18:32:12 by adlancel         ###   ########.fr       */
+/*   Updated: 2021/07/26 18:18:30 by adlancel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_data {
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-	int		rgb[16];
+	int		rgb[32];
 	int		fractal;
 	float	corner[2];
 	float	canvas;
@@ -45,7 +45,7 @@ int		get_key_press(int key, t_data *data);
 int		get_mouse_scroll(int key, int x, int y, t_data *data);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	init_mlx(t_data *data);
-void	init_rgb(int *rgb);
+void	init_rgb(t_data *data);
 void	set_hooks(t_data *data);
 int		init_fractal(t_data *data, char *str);
 float	power_2(float n);
